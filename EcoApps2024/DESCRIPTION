@@ -1,10 +1,16 @@
 Package: EcoApps2024
-Title: What the Package Does (One Line, Title Case)
+Title: Data wrangling and analyses for Keller et al. 2024 Ecological Applications
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("Adrienne", "Keller", , "kellerab@mtu.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-1986-8382"))
+Description: This package wrangles tree inventory data along with other covariate datasets and creates figures and analyses for Keller et al. Ecological Applications "Tree diversity across the Minneapolis-St. Paul Metropolitan Area in relation to climate and social vulnerability."
+00_build_EcoApps.R wrangles the various datasets sets together and calls the other R scripts as needed.
+10_calc-species-diversity_EcoApps.R is called by 00_build_EcoApps.R and calculates multiple metrics of taxonomic and phylogenetic diversity for the tree inventory dataset.
+11_CVI-analysis_EcoApps.R is called by 00_build_EcoApps.R and uses the Climate Vulnerability Index (CVI) to calculate urban canopy climate vulnerability for census tracks across the study area.
+fcns_MSPtreeinventory.R is called by 00_build_EcoApps.R and includes functions specific to this package.
+figs_MS_EcoApps.R makes figures for the Keller et al. 2024 Ecological Applications manuscript. (Note that due to a small subset of the data not being publicly available, the figures will not perfectly match those in the publication).
+stats_MS_EcoApps.R carries out the statistical analyses for the Keller et al. 2024 Ecological Applications manuscript. (Note that due to a small subset of the data not being publicly available, the statistics will not perfectly match those in the publication.)
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
