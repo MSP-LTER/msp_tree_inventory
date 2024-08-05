@@ -50,7 +50,7 @@ pacman::p_load(tidycensus, tidyverse, dplyr, plotly, tigris, readxl, tmap, rgeos
 source(file = "R/fcns_MSPtreeinvetory_EcoApps.R")
 
 # read in tree_layers compiled from 01_compile-tree-inventories (this 01 script takes a long time, so best to just read-in compiled tree layers )
-z <- unzip("/Users/marymarek-spartz/src/msp_tree_inventory/tree_layers_all.csv.zip")
+z <- unzip("R/tree_layers_all.csv.zip")
 tree_csv <- read.csv(z[1])
 #tree_csv <- read.csv(file = "R/tree_layers_all.csv")
 tree_layers_all <- st_as_sf(tree_csv, coords = c("X", "Y"), crs = 26915)
