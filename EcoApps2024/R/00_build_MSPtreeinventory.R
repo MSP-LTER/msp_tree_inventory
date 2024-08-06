@@ -47,7 +47,10 @@ pacman::p_load(tidycensus, tidyverse, dplyr, plotly, tigris, readxl, tmap, rgeos
 source(file = "R_analyses/fcns_MSPtreeinvetory.R")
 
 # read in tree_layers compiled from 01_compile-tree-inventories (this 01 script takes a long time, so best to just read-in compiled tree layers )
-tree_layers_all <- st_read("/Users/kellerab/Documents/archive_work/tree_layers/tree_layers.shp")
+z <- unzip("R/tree_layers_all.csv.zip")
+tree_csv <- read.csv(z[1])
+#tree_csv <- read.csv(file = "R/tree_layers_all.csv")
+tree_layers_all <- st_as_sf(tree_csv, coords = c("X", "Y"), crs = 26915)
 tree_layers_all$plot_level <- ifelse(tree_layers_all$entity == "tchep" |
                                        tree_layers_all$entity == "macro1", 1, 0)
 tree_layers_all <- tree_layers_all %>%
