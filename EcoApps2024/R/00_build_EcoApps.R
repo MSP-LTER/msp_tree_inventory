@@ -39,7 +39,7 @@
 #  epithet = the specific epithet of manually recoded name from genus_epi
 
 rm(list = ls())
-
+setwd("~/EcoApps2024") #set working directory to path where EcoApps2024 folder is stored
 # load packages
 #install.packages("pacman")
 pacman::p_load(tidycensus, tidyverse, dplyr, plotly, tigris, readxl, tmap, rgeos,
